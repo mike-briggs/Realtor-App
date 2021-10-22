@@ -1,0 +1,71 @@
+.center-both-wrapper {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-section{
+    background-color: #fff;
+    padding: 0px;
+    width: 100%;
+    height: 65%;
+    margin-top: 12px;
+    line-height: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: left;
+    display:flex;
+    flex-direction: column;
+}
+
+.horizontal{
+    display: flex;
+    flex-direction: row;
+  }
+  .vertical{
+    display: flex;
+    flex-direction: column;
+  }
+
+.flex-1{
+    display: flex;
+    flex:1;
+  }
+  .flex-2{
+    display: flex;
+    flex:2;
+  }
+
+.QRCode{
+
+    width:180px !important;
+    height:180px !important;
+}
+
+.thin-grey-square{
+    padding:12px;
+    border-style:solid;
+    border-color: #D2D7E1;
+    border-width: 0.7px;
+    border-radius: 4px;
+  }
+.margin-right{
+    margin-right: 8px;
+}
+.margin-right-small{
+    margin-right: 8px;
+}
+.margin-top-8{
+    margin-top:8px;
+}
+.width-100{
+    width:100%;
+}
+
+
+ 
+ 

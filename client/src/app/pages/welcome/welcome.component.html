@@ -1,0 +1,28 @@
+
+   
+   <div class="vertical">
+       <div style="display:flex;flex-direction:row;justify-content: space-between; ">
+            <h3 style="display:flex;">All Listings | 10</h3>
+
+           <div style="display:flex;align-content:flex-end">
+            <a routerLink="/add-listing"><i nz-icon nz-tooltip nzTooltipPlacement="top" nzTooltipTitle="Add a Listing" nzType="plus-square" style="font-size: 22px; color: #25406B;"></i></a>
+            <nz-divider nzType="vertical" style="height:80%;margin-left:12px;margin-right:10px;"></nz-divider>
+            <a *ngIf="!toggleTiles" (click)="setToggleTiles()"><i nz-icon nz-tooltip nzTooltipPlacement="top" nzTooltipTitle="Display as Tiles" nzType="appstore" style="font-size: 22px; color: #25406B;"></i></a>
+            <a *ngIf="toggleTiles" (click)="setToggleTiles()"><i nz-icon nz-tooltip nzTooltipPlacement="top" nzTooltipTitle="Display as List" nzType="bars" style="font-size: 22px; color: #25406B;"></i></a>
+
+        </div>
+
+       </div>
+
+   </div>
+ 
+   <div *ngIf="!toggleTiles">
+    <app-listings></app-listings>
+   </div>
+   <div *ngIf="toggleTiles">
+    <div style="max-height:90%;min-height:90%;overflow-y:scroll !important;">
+        <app-listings-tiles></app-listings-tiles>
+    </div>
+   </div>
+
+

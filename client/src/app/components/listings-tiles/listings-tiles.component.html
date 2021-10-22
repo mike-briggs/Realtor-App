@@ -1,0 +1,32 @@
+<div style="">
+
+  <div style="display:flex;flex-direction: row; flex-wrap: wrap; max-height:75vh;overflow-y:scroll;">
+    <div *ngFor="let data of listOfData" class="card-size">
+      <nz-card style="width:100%" [nzLoading]="loading" [nzCover]="coverTemplate"
+        [nzActions]="[actionShare, actionEdit, actionView]">
+        <nz-skeleton [nzActive]="true" [nzLoading]="loading">
+          <nz-card-meta nzTitle="{{ data.price }} &nbsp;|&nbsp; {{ data.days_listed }} Days"
+            nzDescription="{{ data.address.substring(0,33) }}"></nz-card-meta>
+        </nz-skeleton>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img alt="example" src="{{ data.img }}" style="height:120px; object-fit: cover;" />
+      </ng-template>
+      <ng-template #actionShare>
+        <a routerLink="/share-listing/{{data._id}}"> <i nz-icon nz-tooltip
+            nzTooltipTitle="https://realtyshare.io/listings/{{data._id}}" nzType="link"></i>
+        </a>
+      </ng-template>
+      <ng-template #actionEdit>
+        <i nz-icon nz-tooltip nzTooltipTitle="Edit" nzType="edit"></i>
+      </ng-template>
+      <ng-template #actionView>
+        <a routerLink="/listing/{{data._id}}">
+          <i nz-icon nz-tooltip nzTooltipTitle="View Webpage" nzType="read"></i>
+        </a>
+      </ng-template>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,80 @@
+<nz-layout class="app-layout">
+  <nz-sider *ngIf="true" class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="/" target="_blank">
+        <img src="/assets/img/logomark_dark.svg" alt="logo">
+        <h1>RealtyStory.io</h1>
+      </a>
+    </div>
+    <ul  nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed_listings">
+      <li nz-submenu nzOpen nzTitle="My Listings" nzIcon="bars">
+        <ul>
+          <li nz-menu-item nzMatchRouter nzIcon="bars">
+            <a routerLink="/view-listings"> <i nz-icon nzType="home"></i>View All</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/add-listing"> <i nz-icon nzType="file-add"></i>Add New</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/share-listing/{{all_listings[0]._id}}"><i nz-icon nzType="qrcode"></i>Share URL</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Settings" nzIcon="setting">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a>Plan Settings</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/referral-program">Refferal Program</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>Logout</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <div class="horizontal space-between">
+          <span  *ngIf="true" class="header-trigger center-both" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+        <div *ngIf="false"  class="sidebar-logo-light">
+          <a href="/" target="_blank">
+            <h1>Listing Address</h1>
+          </a>
+        </div>
+        <div class="horizontal">
+          <ul nz-menu nzTheme="light" nzMode="horizontal" class="header-menu">
+            <li nz-menu-item routerLink="/features" nzMatchRouter>Features</li>
+            <li nz-menu-item routerLink="/about" nzMatchRouter>About</li>
+            <li nz-menu-item routerLink="/how-it-works" nzMatchRouter>How it Works</li>
+          </ul>
+          <ul nz-menu nzTheme="light" nzMode="horizontal" class="header-menu border-thin-left">
+            <li nz-menu-item routerLink="/features" nzMatchRouter><i nz-icon nzType="select"></i>Logout</li>
+          </ul>
+        </div>
+          
+        </div>
+        
+        
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

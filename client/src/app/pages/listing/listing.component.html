@@ -1,0 +1,67 @@
+
+<div class="vertical">
+    <div style="display:flex;flex-direction:row;justify-content: space-between; margin-bottom:0px;">
+         <h3 style="display:flex;">Listing Webpage Preview</h3>
+
+        <div style="display:flex;align-content:flex-end">
+            <nz-button-group style="width:100%; margin-top:8px;" nz-dropdown [nzDropdownMenu]="menu1" nzPlacement="bottomLeft"
+            >
+            <button nz-button style="width:100%; text-align: left;"> <i nz-icon nzType="home" nzTheme="fill"
+                style="font-size: 14px; color: #25406B;"></i> {{selected_listing.address == null ? ' ' : selected_listing.address}}              <i nz-icon nzType="down" style="font-size: 14px; color: #25406B;"></i>
+            </button>
+          </nz-button-group>
+          <nz-dropdown-menu #menu1="nzDropdownMenu">
+            <ul nz-menu>
+              <li *ngFor="let data of all_listings" (click)="setSelectedListing(data._id)" [routerLink]="'/listing/'+data._id" nz-menu-item>{{data.address}}
+              </li>
+            </ul>
+          </nz-dropdown-menu>
+        </div>
+    </div>
+    <nz-divider nzType="horizontal" style="margin-bottom:12px;margin-top:12px;"></nz-divider>
+
+
+</div>
+
+<div style="display:flex;flex:1; flex-direction:column; overflow-y: scroll;">
+    <div style="display:flex;flex:1;">
+        <div class="right">
+            <h3 nz-typography class="header-title">{{selected_listing.address}}</h3>
+            <p style="width:80%" nz-typography nzContent="Designed by architect Richard Wengle. 
+            One of a kind over looking south valley. Over 3,000 
+            square feet of luxury living space. 
+            Rear gardens boasting stone terrace, 
+            swimming pool and hot tub with stone exterior.
+            "></p>
+
+    
+        </div>
+        <div  style="display:flex;flex:1;background-image: url({{selected_listing.img}});
+        object-fit: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 70vh;">
+    
+        </div>
+    </div>
+    <div style="display:flex;flex:1;">
+        
+        <div class="full-img" style="display:flex;flex:1;background-image: url({{selected_listing.img}});
+        object-fit: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 70vh;">
+    
+        </div>
+        <div class="right">
+            <h2 nz-typography class="header-title">{{selected_listing.address}}</h2>
+            <p style="width:80%" nz-typography nzContent="Designed by architect Richard Wengle. 
+            One of a kind over looking south valley. Over 3,000 
+            square feet of luxury living space. 
+            Rear gardens boasting stone terrace, 
+            swimming pool and hot tub with stone exterior.
+            "></p>
+        </div>
+    </div>
+    
+</div>
