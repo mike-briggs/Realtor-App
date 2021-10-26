@@ -6,6 +6,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 
 import { ListingRoutingModule } from './listing-routing.module';
@@ -15,7 +16,7 @@ import { ListingsTilesModule } from '../../components/listings-tiles/listings-ti
 
 
 @NgModule({
-  imports: [ListingRoutingModule, CommonModule, NzTypographyModule,ListingsModule,NzDropDownModule, ListingsTilesModule, NzIconModule,NzDividerModule, NzToolTipModule,NzButtonModule],
+  imports: [ListingRoutingModule, CommonModule, NzTypographyModule, ListingsModule, NzDropDownModule, ListingsTilesModule, NzIconModule, NzDividerModule, NzToolTipModule, NzButtonModule, NzTagModule],
   declarations: [ListingComponent],
   exports: [ListingComponent]
 })

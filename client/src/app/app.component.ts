@@ -14,6 +14,8 @@ interface Listing {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  showSideNav = false;
   all_listings: Listing[] = [
     {
       _id: '1304',
@@ -88,4 +90,9 @@ export class AppComponent {
   ];
   isCollapsed = false;
   isCollapsed_listings = false;
+
+
+  setShowSideNav() {
+    this.showSideNav = !this.showSideNav;
+  }
 }

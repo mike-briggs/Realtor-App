@@ -1,7 +1,7 @@
 <div style="">
 
-  <div style="display:flex;flex-direction: row; flex-wrap: wrap; max-height:75vh;overflow-y:scroll;">
-    <div *ngFor="let data of listOfData" class="card-size">
+  <div style="display:flex;flex-direction: row; flex-wrap: wrap; max-height:80vh;overflow-y:scroll;">
+    <div *ngFor="let data of all_listings" class="card-size">
       <nz-card style="width:100%" [nzLoading]="loading" [nzCover]="coverTemplate"
         [nzActions]="[actionShare, actionEdit, actionView]">
         <nz-skeleton [nzActive]="true" [nzLoading]="loading">
@@ -14,7 +14,7 @@
       </ng-template>
       <ng-template #actionShare>
         <a routerLink="/share-listing/{{data._id}}"> <i nz-icon nz-tooltip
-            nzTooltipTitle="https://realtyshare.io/listings/{{data._id}}" nzType="link"></i>
+            nzTooltipTitle="https://realtyshare.io/listings/{{data._id}}" nzType="qrcode"></i>
         </a>
       </ng-template>
       <ng-template #actionEdit>
@@ -22,11 +22,41 @@
       </ng-template>
       <ng-template #actionView>
         <a routerLink="/listing/{{data._id}}">
-          <i nz-icon nz-tooltip nzTooltipTitle="View Webpage" nzType="read"></i>
+          <i nz-icon nz-tooltip nzTooltipTitle="View Webpage" nzType="link"></i>
         </a>
       </ng-template>
     </div>
   </div>
+  <style>
+    .card-size {
+      padding-right: 12px !important;
+      width: 25% !important;
+      padding-bottom: 12px !important;
+    }
 
+    @media(max-width:1200px) {
+      .card-size {
+        padding-right: 12px !important;
+        width: 33% !important;
+        padding-bottom: 12px !important;
+      }
+    }
+
+    @media(max-width:800px) {
+      .card-size {
+        padding-right: 12px !important;
+        width: 50% !important;
+        padding-bottom: 12px !important;
+      }
+    }
+
+    @media(max-width:550px) {
+      .card-size {
+        padding-right: 12px !important;
+        width: 100% !important;
+        padding-bottom: 12px !important;
+      }
+    }
+  </style>
 
 </div>

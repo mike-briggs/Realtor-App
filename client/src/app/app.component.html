@@ -1,17 +1,13 @@
 <nz-layout class="app-layout">
-  <nz-sider *ngIf="true" class="menu-sidebar"
-            nzCollapsible
-            nzWidth="256px"
-            nzBreakpoint="md"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null">
+  <nz-sider *ngIf="showSideNav" class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="/" target="_blank">
         <img src="/assets/img/logomark_dark.svg" alt="logo">
-        <h1>RealtyStory.io</h1>
+        <h1>RealtorDash</h1>
       </a>
     </div>
-    <ul  nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed_listings">
+    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed_listings">
       <li nz-submenu nzOpen nzTitle="My Listings" nzIcon="bars">
         <ul>
           <li nz-menu-item nzMatchRouter nzIcon="bars">
@@ -20,9 +16,12 @@
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/add-listing"> <i nz-icon nzType="file-add"></i>Add New</a>
           </li>
-          <li nz-menu-item nzMatchRouter>
+          <!-- <li nz-menu-item nzMatchRouter>
             <a routerLink="/share-listing/{{all_listings[0]._id}}"><i nz-icon nzType="qrcode"></i>Share URL</a>
           </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/listing/{{all_listings[0]._id}}"><i nz-icon nzType="desktop"></i>Listing Preview</a>
+          </li> -->
         </ul>
       </li>
       <li nz-submenu nzOpen nzTitle="Settings" nzIcon="setting">
@@ -44,31 +43,33 @@
     <nz-header>
       <div class="app-header">
         <div class="horizontal space-between">
-          <span  *ngIf="true" class="header-trigger center-both" (click)="isCollapsed = !isCollapsed">
-            <i class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></i>
-        </span>
-        <div *ngIf="false"  class="sidebar-logo-light">
-          <a href="/" target="_blank">
-            <h1>Listing Address</h1>
-          </a>
+          <span class="header-trigger center-both" (click)="isCollapsed = !isCollapsed">
+            <i *ngIf="showSideNav" class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+          </span>
+          <div *ngIf="false" class="sidebar-logo-light">
+            <a href="/" target="_blank">
+              <h1>Listing Address</h1>
+            </a>
+          </div>
+          <div class="horizontal">
+            <ul nz-menu nzTheme="light" nzMode="horizontal" class="header-menu hide-nav">
+              <li nz-menu-item routerLink="/features" nzMatchRouter>{{showSideNav == true
+                ? 'Features':''}}</li>
+              <li nz-menu-item routerLink="/about" nzMatchRouter>{{showSideNav == true
+                ? 'About':''}}</li>
+              <li nz-menu-item routerLink="/how-it-works" nzMatchRouter>{{showSideNav == true
+                ? 'How it Works':''}}</li>
+            </ul>
+            <ul nz-menu nzTheme="light" nzMode="horizontal" class="header-menu border-thin-left">
+              <li (click)="setShowSideNav()" nz-menu-item routerLink="/features" nzMatchRouter><i nz-icon
+                  nzType="select"></i>{{showSideNav == true
+                ? 'Logout':'Contact Realtor'}}</li>
+            </ul>
+          </div>
+
         </div>
-        <div class="horizontal">
-          <ul nz-menu nzTheme="light" nzMode="horizontal" class="header-menu">
-            <li nz-menu-item routerLink="/features" nzMatchRouter>Features</li>
-            <li nz-menu-item routerLink="/about" nzMatchRouter>About</li>
-            <li nz-menu-item routerLink="/how-it-works" nzMatchRouter>How it Works</li>
-          </ul>
-          <ul nz-menu nzTheme="light" nzMode="horizontal" class="header-menu border-thin-left">
-            <li nz-menu-item routerLink="/features" nzMatchRouter><i nz-icon nzType="select"></i>Logout</li>
-          </ul>
-        </div>
-          
-        </div>
-        
-        
+
+
       </div>
     </nz-header>
     <nz-content>

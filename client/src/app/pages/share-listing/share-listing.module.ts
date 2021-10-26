@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 
 import { ShareListingRoutingModule } from './share-listing-routing.module';
@@ -19,20 +21,22 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'
 
 @NgModule({
-  imports: [ShareListingRoutingModule, 
-            FormsModule,
-            CommonModule, 
-            ListingsModule, 
-            ListingsTilesModule,
-            NzButtonModule,
-            NzDropDownModule,
-            NzNotificationModule,
-            NzFormModule,
-            NzIconModule, 
-            NzInputModule,
-            NzToolTipModule,
-            NgxQRCodeModule
-          ],
+  imports: [ShareListingRoutingModule,
+    FormsModule,
+    CommonModule,
+    ListingsModule,
+    ListingsTilesModule,
+    NzTypographyModule,
+    NzButtonModule,
+    NzDropDownModule,
+    NzNotificationModule,
+    NzDividerModule,
+    NzFormModule,
+    NzIconModule,
+    NzInputModule,
+    NzToolTipModule,
+    NgxQRCodeModule
+  ],
   declarations: [ShareListingComponent],
   exports: [ShareListingComponent]
 })

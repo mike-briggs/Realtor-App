@@ -1,17 +1,27 @@
 <div class="center-both-wrapper">
-    <div class="main-section">
-      <h2>Refferal Link</h2>
+  <div class="main-section">
+    <h2>Refferal Link</h2>
 
-<p nz-typography nzContent="Refer other agents and get $50 each time a user is created using this link."></p>
-<nz-button-group style="width:100%; margin-top:8px;">
-  <button (click)="copyMessage('Hello')" nz-button style="width:100%; text-align: left;">
-    <i nz-icon nzType="link" style="font-size: 14px; color: #25406B;"></i>
-    https://realtyshare/register/1234
-  </button>
-  <button (click)="copyMessage('https://realtyshare/register/1234')" nz-button>
-    <i nz-icon nzType="copy" style="font-size: 14px; color: #25406B;" nz-tooltip nzTooltipTitle="Copy to Clipboard"></i>
-  </button>
-</nz-button-group>
+    <p nz-typography
+      nzContent="Refer other agents and get $50 each time a subscribing user is created using this link."></p>
+    <nz-button-group style="width:100%; margin-top:8px;">
+      <button (click)="copyMessage('Hello')" nz-button style="width:100%; text-align: left;">
+        <i nz-icon nzType="link" style="font-size: 14px; color: #25406B;"></i>
+        https://realtyshare/register/1234
+      </button>
+      <button (click)="copyMessage('https://realtyshare/register/1234')" nz-button>
+        <i nz-icon nzType="copy" style="font-size: 14px; color: #25406B;" nz-tooltip
+          nzTooltipTitle="Copy to Clipboard"></i>
+      </button>
+    </nz-button-group>
 
-</div>
+    <nz-divider nzType="horizontal"></nz-divider>
+    <nz-progress [nzPercent]="50" nzStatus="active" [nzShowInfo]="true" nzStrokeColor="#2965c7"></nz-progress>
+
+    <h3 style="margin-top: 8px;">Progress to Reward</h3>
+    <p nz-typography
+      nzContent="Earn a free month subscription at next reward. Thank you for helping share the platform!"></p>
+
+
+  </div>
 </div>

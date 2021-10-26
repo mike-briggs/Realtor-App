@@ -16,6 +16,15 @@
   background-color: #fff;
   box-shadow: 2px 0 6px #fff;
 }
+.hide-nav{
+  display:unset;
+}
+@media(max-width:600px){
+  .hide-nav{
+    display:none;
+  }
+}
+
 
 .header-trigger {
   height: 64px;

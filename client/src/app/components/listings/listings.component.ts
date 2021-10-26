@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 interface Listing {
   _id: string;
@@ -15,6 +15,11 @@ interface Listing {
   templateUrl: './listings.component.html'
 })
 export class ListingsComponent {
+
+
+  @Input() all_listings: Listing[] = [];
+
+
   listOfData: Listing[] = [
     {
       _id: '1304',

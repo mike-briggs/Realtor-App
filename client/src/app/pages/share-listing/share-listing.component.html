@@ -3,31 +3,35 @@
 
 
     <div class="main-section">
+      <h4 nz-typography style="display:flex;margin-bottom:12px;">Share Listing Webpage</h4>
+      <nz-divider nzType="horizontal" style="margin:0px;margin-bottom:12px;"></nz-divider>
       <div class="horizontal">
         <div class="thin-grey-square margin-right">
           <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="value"
             cssClass="QRCode">
           </ngx-qrcode>
-  
+
         </div>
-  
+
         <div class="thin-grey-square width-100">
           <img alt="house_preview" src="{{ selected_listing.img }}"
             style="height:180px; width:400px; object-fit: cover;" />
         </div>
       </div>
       <div class="vertical">
-        <nz-button-group style="width:100%; margin-top:8px;" nz-dropdown [nzDropdownMenu]="menu1" nzPlacement="bottomLeft"
-          >
+        <nz-button-group style="width:100%; margin-top:8px;" nz-dropdown [nzDropdownMenu]="menu1"
+          nzPlacement="bottomLeft">
           <button nz-button style="width:100%; text-align: left;"> <i nz-icon nzType="home" nzTheme="fill"
-              style="font-size: 14px; color: #25406B;"></i> {{selected_listing.address == null ? ' ' : selected_listing.address}}</button>
+              style="font-size: 14px; color: #25406B;"></i>
+            {{selected_listing.address == null ? ' ' : selected_listing.address}}</button>
           <button nz-button>
             <i nz-icon nzType="down" style="font-size: 14px; color: #25406B;"></i>
           </button>
         </nz-button-group>
         <nz-dropdown-menu #menu1="nzDropdownMenu">
           <ul nz-menu>
-            <li *ngFor="let data of all_listings" [routerLink]="'/share-listing/'+data._id" (click)="setSelectedListing(data._id)" nz-menu-item>{{data.address}}
+            <li *ngFor="let data of all_listings" [routerLink]="'/share-listing/'+data._id"
+              (click)="setSelectedListing(data._id)" nz-menu-item>{{data.address}}
             </li>
           </ul>
         </nz-dropdown-menu>
@@ -37,19 +41,22 @@
             {{inputValue}}
           </button>
           <button (click)="copyMessage(inputValue)" nz-button>
-            <i nz-icon nzType="copy" style="font-size: 14px; color: #25406B;" nz-tooltip nzTooltipTitle="Copy to Clipboard"></i>
+            <i nz-icon nzType="copy" style="font-size: 14px; color: #25406B;" nz-tooltip
+              nzTooltipTitle="Copy to Clipboard"></i>
           </button>
         </nz-button-group>
         <div class="horizontal margin-top-8">
-  
+
           <div class="flex-1 margin-right-small">
-            <button (click)="downloadQRCode(selected_listing.address.substring(0,20), selected_listing._id)" nz-button nzSize="large" nzType="primary"  style="width:100%">
+            <button (click)="downloadQRCode(selected_listing.address.substring(0,20), selected_listing._id)" nz-button
+              nzSize="large" nzType="primary" style="width:100%">
               <i nz-icon nzType="qrcode"></i>
               Download QR-Code
             </button>
           </div>
           <div class="flex-1">
-            <button (click)="downloadQRCode(selected_listing.address.substring(0,20), selected_listing._id)" nz-button nzSize="large" nzType="primary" nzGhost style="width:100%">
+            <button (click)="downloadQRCode(selected_listing.address.substring(0,20), selected_listing._id)" nz-button
+              nzSize="large" nzType="primary" nzGhost style="width:100%">
               <i nz-icon nzType="file-text"></i>
               Create Print-out
             </button>
@@ -58,7 +65,7 @@
       </div>
 
     </div>
-    
+
 
 
   </div>

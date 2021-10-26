@@ -1,1 +1,134 @@
-<h3>Street Address</h3>
+<div style="display:flex; flex-direction: column;">
+
+  <div style="display:flex; flex-direction: row;flex:1;">
+    <div style="display:flex; flex-direction: column;flex:1; padding-right:24px;align-items: flex-start;">
+
+
+      <h4>Street Address</h4>
+
+      <nz-input-group style="margin-bottom: 12px;" [nzSuffix]="suffixTemplateInfo" [nzPrefix]="prefixTemplateUser">
+        <input type="text" nz-input placeholder="1234 Street Address City A1B 2C3" />
+      </nz-input-group>
+      <ng-template #prefixTemplateUser><i nz-icon nzType="home" style="padding-right:4px"></i></ng-template>
+      <ng-template #suffixTemplateInfo>
+        <i nz-icon nz-tooltip nzTooltipTitle="Extra information" nzType="info-circle"></i>
+      </ng-template>
+
+      <h4>First Description</h4>
+      <textarea nz-input
+        placeholder="Designed by architect Richard Wengle.One of a kind over looking south valley. Over 3,000 square feet of luxury living space. Rear gardens boasting stone terrace, swimming pool and hot tub with stone exterior."
+        [nzAutosize]="{ minRows: 3, maxRows: 7 }"></textarea>
+
+      <div style="display:flex; flex-direction: row;margin-top:12px;">
+        <div style="display:flex; flex-direction: column;flex:1;padding-right:12px">
+          <h5>Bedrooms</h5>
+          <nz-input-group style="margin-bottom: 12px;" [nzPrefix]="prefixTemplateBed">
+            <input nz-input #bedElement nzOverlayClassName="numeric-input" placeholder="4" [ngModel]="value"
+              (ngModelChange)="onChange($event)" (blur)="onBlur()" />
+          </nz-input-group>
+          <ng-template #prefixTemplateBed><i nz-icon nzType="appstore-add" style="padding-right:4px"></i>
+          </ng-template>
+
+        </div>
+        <div style="display:flex; flex-direction: column;flex:1; padding-right:12px">
+          <h5>Bathrooms</h5>
+          <nz-input-group style="margin-bottom: 12px;" [nzPrefix]="prefixTemplateBath">
+            <input #bedElement nzOverlayClassName="numeric-input" nz-input placeholder="3" />
+          </nz-input-group>
+          <ng-template #prefixTemplateBath><i nz-icon nzType="insert-row-left" style="padding-right:4px"></i>
+          </ng-template>
+
+        </div>
+        <div style="display:flex; flex-direction: column;flex:1;">
+          <h5>Square Feet</h5>
+          <nz-input-group style="margin-bottom: 12px;" [nzPrefix]="prefixTemplateSize">
+            <input type="text" nz-input placeholder="2350" />
+          </nz-input-group>
+          <ng-template #prefixTemplateSize><i nz-icon nzType="compress" style="padding-right:4px"></i></ng-template>
+
+        </div>
+      </div>
+
+      <h4>House Photos</h4>
+
+
+
+      <nz-upload nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76" nzListType="picture-card"
+        [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 8" [nzPreview]="handlePreview"
+        style="object-fit: cover;">
+        <div style="object-fit: cover;">
+          <i nz-icon nzType="picture"></i>
+          <div style="margin-top: 8px">Upload</div>
+        </div>
+      </nz-upload>
+      <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
+        (nzOnCancel)="previewVisible = false">
+        <ng-template #modalContent>
+          <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+        </ng-template>
+      </nz-modal>
+
+      <nz-divider nzType="horizontal"></nz-divider>
+
+    </div>
+    <div style="display:flex; flex-direction: column; flex:1;">
+      <h4>Neighbourhood Amenities</h4>
+      <div style="display:flex; flex-direction: row;flex:1; margin-bottom:12px;">
+        <div style="display:flex; flex-direction: column;flex:5;padding-right:12px">
+          <nz-input-group style="margin-bottom: 12px;" [nzSuffix]="suffixTemplateInfo"
+            [nzPrefix]="prefixTemplateNature">
+            <input type="text" nz-input placeholder="Great park 3 minutes away." />
+          </nz-input-group>
+          <ng-template #prefixTemplateNature><i nz-icon nzType="compass" style="padding-right:4px"></i></ng-template>
+          <ng-template #suffixTemplateInfo>
+            <i nz-icon nz-tooltip nzTooltipTitle="Extra information" nzType="info-circle"></i>
+          </ng-template>
+          <textarea nz-input
+            placeholder="Designed by architect Richard Wengle.One of a kind over looking south valley. Over 3,000 square feet of luxury living space. Rear gardens boasting stone terrace, swimming pool and hot tub with stone exterior."
+            [nzAutosize]="{ minRows: 7, maxRows: 7 }"></textarea>
+        </div>
+        <div style="display:flex; flex-direction: column;flex:2;padding-right:12px">
+          <nz-button-group style="width:100%; margin-bottom:12px;" nz-dropdown [nzDropdownMenu]="menu1"
+            nzPlacement="bottomLeft">
+            <button nz-button style="width:100%; text-align: left;"> {{category1 == '' ? 'Category' : category1}}
+              <i nz-icon nzType="down" style="font-size: 14px; color: #25406B;"></i>
+            </button>
+          </nz-button-group>
+          <nz-dropdown-menu #menu1="nzDropdownMenu">
+            <ul nz-menu>
+              <li *ngFor="let data of categories" (click)="setCategory1(data.title)" nz-menu-item>{{data.title}}
+              </li>
+            </ul>
+          </nz-dropdown-menu>
+          <nz-upload nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76" nzListType="picture-card"
+            [(nzFileList)]="fileList2" [nzShowButton]="fileList2.length == 0" [nzPreview]="handlePreview">
+            <div style="display:flex; flex-direction: column; display: flex;
+    align-items: center;
+    justify-content: center;">
+              <i nz-icon nzType="picture"></i>
+              <div style="margin-top: 8px">Upload</div>
+            </div>
+          </nz-upload>
+          <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
+            (nzOnCancel)="previewVisible = false">
+            <ng-template #modalContent>
+              <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+            </ng-template>
+          </nz-modal>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+
+  <button [disabled]="formFilled" nz-button nzSize="large" nzType="primary" style="width:100%">
+    Create Website Page
+    <i nz-icon nzType="export"></i>
+  </button>
+
+
+</div>

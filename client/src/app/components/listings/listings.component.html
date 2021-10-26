@@ -1,35 +1,33 @@
-
-      <div style="max-height:90%;overflow-y:auto; max-height:75vh;overflow-y:scroll;">
-        <nz-table #basicTable [nzData]="listOfData" [nzFrontPagination]="false">
-          <thead>
-            <tr>
-              <th>Street Address</th>
-              <th>Price</th>
-              <th>Time Listed</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let data of basicTable.data">
-              <td><a>{{ data.address }}</a></td>
-              <td>{{ data.price }}</td>
-              <td><nz-tag nzColor="processing">
-                <i nz-icon nzType="clock-circle"></i>
-                <span>{{ data.days_listed }} days</span></nz-tag></td>
-              <td>
-                <a [routerLink]="'/share-listing/'+data._id"><i nz-icon nz-tooltip [nzTooltipTitle]="'https://realtystory.io/listings/'+data._id" nzType="link"></i></a>
-                <nz-divider nzType="vertical"></nz-divider>
-                <a><i nz-icon nz-tooltip nzTooltipTitle="Edit" nzType="edit"></i></a>
-                <nz-divider nzType="vertical"></nz-divider>
-                <a routerLink="/listing/{{data._id}}">      
-                  <i  nz-icon nz-tooltip nzTooltipTitle="View Webpage" nzType="read"></i>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </nz-table>
-      </div>
-      
-    
-    
-  
+<div style="max-height:90%;overflow-y:auto; max-height:75vh;overflow-y:scroll;">
+  <nz-table #basicTable [nzData]="all_listings" [nzFrontPagination]="false">
+    <thead>
+      <tr>
+        <th>Street Address</th>
+        <th>Price</th>
+        <th>Time Listed</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td><a>{{ data.address }}</a></td>
+        <td>{{ data.price }}</td>
+        <td>
+          <nz-tag nzColor="processing">
+            <i nz-icon nzType="clock-circle"></i>
+            <span>{{ data.days_listed }} days</span></nz-tag>
+        </td>
+        <td>
+          <a [routerLink]="'/share-listing/'+data._id"><i nz-icon nz-tooltip
+              [nzTooltipTitle]="'https://realtystory.io/listings/'+data._id" nzType="qrcode"></i></a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a><i nz-icon nz-tooltip nzTooltipTitle="Edit" nzType="edit"></i></a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a routerLink="/listing/{{data._id}}">
+            <i nz-icon nz-tooltip nzTooltipTitle="View Webpage" nzType="link"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
